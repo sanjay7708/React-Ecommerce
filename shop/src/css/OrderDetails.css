@@ -1,0 +1,103 @@
+.order-details-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 2rem;
+  font-family: "Inter", sans-serif;
+}
+
+.order-header {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1.5rem;
+}
+
+.order-date {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.order-summary h3, 
+.order-items h3 {
+  margin-top: 1rem;
+  color: #333;
+}
+
+.address-block {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.order-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+}
+
+.item-image img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.item-info h4 {
+  margin: 0;
+}
+
+.subtotal {
+  font-weight: 600;
+  color: #333;
+}
+
+.order-footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.back-btn {
+  color: white;
+  background-color: #007bff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Loading Spinner */
+.order-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #eee;
+  border-top-color: #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error, .no-order {
+  text-align: center;
+  color: red;
+  margin-top: 2rem;
+}

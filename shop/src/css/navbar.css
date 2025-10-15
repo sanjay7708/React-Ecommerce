@@ -1,0 +1,122 @@
+/* Navbar.css */
+.navbar {
+  position: fixed;        /* Always at top */
+  top: 0;
+  left: 0;
+  width: 100%;            /* Full width */
+  height: 60px;           /* Fixed height */
+  background-color: #1a1a1a;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 1000;          /* Stay above all content */
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.navbar-logo li{
+  list-style-type: none;
+  
+}
+.navbar-logo li a{
+  text-decoration: none;
+  color: white;
+}
+.navbar-links li{
+    list-style-type: none;
+}
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.navbar-links a:hover {
+  color: #00bfff;
+}
+
+.navbar-search {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-search input {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+.navbar-search button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #00bfff;
+  color: white;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.navbar-search button:hover {
+  background-color: #009acd;
+}
+
+/* To prevent content from hiding under navbar */
+.page-content {
+  padding-top: 60px; /* Equal to navbar height */
+}
+
+
+.dropdown {
+  position: relative; /* This makes dropdown menu position relative to username */
+}
+
+.dropdown-toggle {
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* exactly below username */
+  left: 0;
+  background-color: #1a1a1a;
+  min-width: 150px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 4px;
+  z-index: 9999; /* on top of everything */
+}
+
+.dropdown-menu li {
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background-color: #00bfff;
+}
+
+.dropdown-menu a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-menu li a:hover{
+  color: white;
+}
