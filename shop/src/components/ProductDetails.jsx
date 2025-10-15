@@ -46,8 +46,9 @@ export const ProductDetails = () => {
                 },
                 withCredentials: true
             })
-            console.log(res)
+            
             setCartCount(prev => prev + 1)
+            navigate('/cart')
         }
         catch {
             alert('error cart add')
