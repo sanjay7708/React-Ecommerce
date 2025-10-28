@@ -52,7 +52,7 @@ export const AddAddress = () => {
                 <form method='post' onSubmit={handleSubmit}>
                     <div className="input-group">
                         <label htmlFor="signup-username">Address Type:</label>
-                        <input type="text" id="signup-username" name='address_type' value={address.address_type} onChange={handleChange} placeholder="address-type" required />
+                        <input type="text" id="signup-username" name='address_type' value={address.address_type} onChange={handleChange} placeholder="HOME or OFFICE" required />
                     </div>
                     <div className="input-group">
                         <label htmlFor="signup-email">building_no</label>
