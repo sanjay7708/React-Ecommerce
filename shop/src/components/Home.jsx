@@ -1,66 +1,140 @@
-import React, { useEffect, useState } from 'react'
-import api from '../api'
-import '../css/home.css'
-import { Link, useLocation } from 'react-router-dom'
+body {
+  background-color: #fafafa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  color: #333;
+}
 
-export const Home = () => {
-  const [product, setProduct] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+/* Container */
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
 
-  const location = useLocation()
-  const query = new URLSearchParams(location.search).get('q') || ''
+/* Product Card */
+.product-card {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
 
-  useEffect(() => {
-    const getProduct = async () => {
-      try {
-        setLoading(true)
-        setError(null)
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
 
-        // ✅ Correct URL
-        const endpoint = query ? `store/product/?q=${query}` : 'store/product/'
+.product-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  background-color: #f2f2f2;
+  transition: transform 0.3s ease;
+}
 
-        const res = await api.get(endpoint, { withCredentials: true })
-        setProduct(res.data)
-      } catch (error) {
-        console.error(error)
-        setError('Something went wrong while fetching products.')
-      } finally {
-        setLoading(false)
-      }
-    }
+.product-card:hover img {
+  transform: scale(1.05);
+}
 
-    getProduct()
-  }, [query])
+/* Text */
+.product-card h3 {
+  font-size: 1.05rem;
+  margin: 12px 0 6px;
+  padding: 0 12px;
+  color: #2c3e50;
+  font-weight: 600;
+}
 
-  if (loading) return <p className="loading">Loading products...</p>
-  if (error) return <p className="error">{error}</p>
+.product-card .price {
+  font-weight: bold;
+  color: #e67e22;
+  margin: 0 0 14px;
+  padding: 0 12px;
+  font-size: 1.05rem;
+}
 
-  return (
-    <div className="products-container">
-      {product.length > 0 ? (
-        product.map((item) => (
-          <div className="product-card" key={item.id}>
-            <Link to={`/products/${item.slug}`}>
-              <img
-                src={item.images[0]?.image || '/placeholder.png'}
-                alt={item.short_name}
-              />
-              <h3>{item.short_name}</h3>
-              <p className="price">₹{item.base_price}</p>
-            </Link>
-          </div>
-        ))
-      ) : (
-        <div className="no-results">
-          <h3>No products found{query ? ` for “${query}”` : ''}.</h3>
-          {query && (
-            <Link to="/" className="back-btn">
-              Back to all products
-            </Link>
-          )}
-        </div>
-      )}
-    </div>
-  )
+/* No results page */
+.no-results {
+  text-align: center;
+  padding: 40px;
+}
+
+.no-results h3 {
+  font-size: 1.2rem;
+  color: #444;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 18px;
+  background: #2c3e50;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-btn:hover {
+  background: #1b2836;
+}
+
+/* Loading & Error */
+.loading, .error {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.1rem;
+}
+
+/* 📱 Tablet Responsive */
+@media (max-width: 900px) {
+  .products-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .product-card img {
+    height: 200px;
+  }
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 600px) {
+  .products-container {
+    padding: 20px 12px;
+    gap: 15px;
+  }
+
+  .product-card img {
+    height: 170px;
+  }
+
+  .product-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .product-card .price {
+    font-size: 0.95rem;
+  }
+}
+
+/* 📱 Very Small Screens (350px and below) */
+@media (max-width: 380px) {
+  .products-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .product-card img {
+    height: 150px;
+  }
 }
