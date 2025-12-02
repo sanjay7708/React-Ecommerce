@@ -5,6 +5,7 @@
   flex-direction: column;
   gap: 20px;
   padding: 20px;
+  font-family: "Inter", sans-serif;
 }
 
 .order-card {
@@ -14,6 +15,7 @@
   padding: 16px;
 }
 
+/* Header */
 .order-header {
   display: flex;
   justify-content: space-between;
@@ -25,6 +27,7 @@
   margin-bottom: 12px;
 }
 
+/* Body */
 .order-body {
   display: flex;
   align-items: center;
@@ -56,9 +59,11 @@
   color: #555;
 }
 
+/* Footer */
 .order-footer {
   display: flex;
   justify-content: flex-end;
+  flex-wrap: wrap;
   gap: 10px;
   margin-top: 15px;
 }
@@ -70,6 +75,10 @@
   border: none;
   cursor: pointer;
   transition: 0.25s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-primary {
@@ -90,4 +99,83 @@
 
 .btn-outline:hover {
   background: #f5f5f5;
+}
+
+/* =========================
+   RESPONSIVE STYLES
+   ========================= */
+
+/* Tablet screens ≤992px */
+@media (max-width: 992px) {
+  .order-body {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-body img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .order-footer {
+    justify-content: center;
+  }
+}
+
+/* Mobile screens ≤768px */
+@media (max-width: 768px) {
+  .order-body {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .order-body img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .order-info h3 {
+    font-size: 15px;
+  }
+
+  .order-info p {
+    font-size: 13px;
+  }
+
+  .order-footer {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+/* Small mobile ≤480px */
+@media (max-width: 480px) {
+  .orders-container {
+    padding: 10px;
+  }
+
+  .order-body img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .order-info h3 {
+    font-size: 14px;
+  }
+
+  .order-info p {
+    font-size: 12px;
+  }
+
+  .btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
 }
