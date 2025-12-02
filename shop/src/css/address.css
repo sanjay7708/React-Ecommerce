@@ -1,76 +1,149 @@
-   body {
-      font-family: Arial, sans-serif;
-      background-color: #fff;
-      margin: 0;
-      padding: 20px;
-    }
+/* Page Base */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #111;   /* Darker background to match navbar theme */
+  margin: 0;
+  padding: 20px;
+}
 
-    h2 {
-      margin-bottom: 20px;
-      color: white;
-    }
+h2 {
+  margin-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  font-size: 1.8rem;
+}
 
-    .address-container {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+/* Container */
+.address-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 0;
+}
 
-    /* Add Address Box */
-    .add-box {
-      width: 250px;
-      height: 180px;
-      border: 2px dashed #bbb;
-      border-radius: 6px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      font-size: 18px;
-      color: #555;
-      transition: border-color 0.3s;
-    }
+/* Add Address Box */
+.add-box {
+  width: 260px;
+  height: 180px;
+  border: 2px dashed #bbb;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ddd;
+  background: #1a1a1a;
+  transition: all 0.3s ease;
+}
 
-    .add-box:hover {
-      border-color: #ff9900;
-      color: #ff9900;
-    }
+.add-box:hover {
+  border-color: #ff9900;
+  color: #ff9900;
+}
 
-    /* Address Card */
-    .address-card {
-      width: 250px;
-      min-height: 180px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      padding: 15px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      background: #fff;
-    }
+/* Address Card */
+.address-card {
+  width: 260px;
+  min-height: 190px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(255,255,255,0.05);
+  background: #1f1f1f;
+  color: #f2f2f2;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 
-    .address-card .default {
-      font-size: 12px;
-      color: #555;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
+.address-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 14px rgba(255,255,255,0.08);
+}
 
-    .address-card p {
-      margin: 5px 0;
-      font-size: 14px;
-      line-height: 1.4;
-    }
+/* Default Label */
+.address-card .default {
+  font-size: 12px;
+  background: #00bfff;
+  color: #000;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
 
-    .address-card .actions {
-      margin-top: 10px;
-    }
+/* Text */
+.address-card p {
+  margin: 6px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ccc;
+}
 
-    .address-card .actions a {
-      font-size: 14px;
-      margin-right: 15px;
-      text-decoration: none;
-      color: #0066c0;
-    }
+/* Actions */
+.address-card .actions {
+  margin-top: 12px;
+}
 
-    .address-card .actions a:hover {
-      text-decoration: underline;
-    }
+.address-card .actions a {
+  font-size: 14px;
+  margin-right: 12px;
+  text-decoration: none;
+  color: #00aaff;
+}
+
+.address-card .actions a:hover {
+  text-decoration: underline;
+}
+
+/* -------------------------------------------------------
+   📱 Tablet Responsiveness
+--------------------------------------------------------- */
+@media (max-width: 900px) {
+  .add-box,
+  .address-card {
+    width: 46%;
+    min-height: 180px;
+  }
+}
+
+/* -------------------------------------------------------
+   📱 Mobile Responsiveness
+--------------------------------------------------------- */
+@media (max-width: 600px) {
+  .address-container {
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .add-box,
+  .address-card {
+    width: 100%;
+    min-height: 170px;
+  }
+
+  .add-box {
+    height: 160px;
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* -------------------------------------------------------
+   📱 Small Devices (360px and below)
+--------------------------------------------------------- */
+@media (max-width: 380px) {
+  .add-box,
+  .address-card {
+    min-height: 155px;
+  }
+
+  .address-card p,
+  .address-card .actions a {
+    font-size: 13px;
+  }
+}
