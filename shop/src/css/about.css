@@ -1,42 +1,111 @@
 .about-container {
   min-height: 100vh;
-  background-color: #121212; /* Matches navbar dark theme */
+  background-color: #121212;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 20px; /* space from navbar and sides */
+  padding: 80px 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Card */
 .about-card {
-  background-color: #1a1a1a; /* Slightly lighter than background */
+  background-color: #1a1a1a;
   color: #f5f5f5;
-  max-width: 800px;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  max-width: 900px;
+  width: 100%;
+  padding: 45px;
+  border-radius: 14px;
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.35);
   text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
+/* Heading */
 .about-card h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #00bfff; /* Accent color matches navbar hover */
+  font-size: 2.4rem;
+  margin-bottom: 22px;
+  color: #00bfff;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
+/* Paragraphs */
 .about-card p {
-  line-height: 1.6;
-  font-size: 1.1rem;
-  margin-bottom: 15px;
+  line-height: 1.7;
+  font-size: 1.15rem;
+  margin-bottom: 18px;
+  color: #dcdcdc;
 }
 
+/* Highlighted text */
 .about-card strong {
   color: #00bfff;
 }
 
+/* Thank You */
 .thank-you {
-  margin-top: 20px;
+  margin-top: 25px;
   font-style: italic;
   font-weight: 500;
-  color: #cccccc;
+  color: #bbbbbb;
+  font-size: 1.1rem;
+}
+
+/* ✨ Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Tablet screens */
+@media (max-width: 900px) {
+  .about-card {
+    padding: 35px;
+  }
+  .about-card h1 {
+    font-size: 2rem;
+  }
+  .about-card p {
+    font-size: 1.05rem;
+  }
+}
+
+/* 📱 Mobile screens */
+@media (max-width: 600px) {
+  .about-container {
+    padding: 60px 15px;
+  }
+  .about-card {
+    padding: 28px;
+    border-radius: 12px;
+  }
+
+  .about-card h1 {
+    font-size: 1.8rem;
+  }
+
+  .about-card p {
+    font-size: 1rem;
+  }
+
+  .thank-you {
+    font-size: 1rem;
+  }
+}
+
+/* 📱 Small devices (360px and below) */
+@media (max-width: 380px) {
+  .about-card h1 {
+    font-size: 1.6rem;
+  }
+  .about-card p {
+    font-size: 0.95rem;
+  }
 }
