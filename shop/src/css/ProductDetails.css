@@ -14,7 +14,6 @@
   width: 100%;
   max-width: 500px;
   margin: auto;
-  min-height: 300px;
 }
 
 .product-image-wrapper img {
@@ -40,7 +39,7 @@
 .product-price {
   font-size: 24px;
   font-weight: bold;
-  color: #2c7a7b; /* teal accent */
+  color: #2c7a7b;
 }
 
 .product-description {
@@ -53,6 +52,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  justify-content: flex-start;
 }
 
 .variation-list button {
@@ -117,14 +117,11 @@
 /* Tablets ≤992px */
 @media (max-width: 992px) {
   .product-details-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* stack image & details */
     gap: 30px;
   }
 
-  .product-actions {
-    justify-content: center;
-  }
-
+  .product-actions,
   .variation-list {
     justify-content: center;
   }
@@ -133,21 +130,33 @@
 /* Mobile ≤768px */
 @media (max-width: 768px) {
   .product-info h2 {
-    font-size: 24px;
+    font-size: 22px;
+    text-align: center;
   }
 
   .product-price {
     font-size: 20px;
+    text-align: center;
   }
 
   .product-description {
     font-size: 14px;
+    text-align: center;
   }
 
   .btn {
-    width: 100%;
+    width: 100%; /* full-width buttons */
     padding: 12px 0;
     font-size: 15px;
+  }
+
+  .variation-list {
+    justify-content: center;
+  }
+
+  .variation-list button {
+    font-size: 13px;
+    padding: 6px 12px;
   }
 }
 
@@ -159,12 +168,7 @@
   }
 
   .product-image-wrapper {
-    min-height: 200px;
-  }
-
-  .variation-list button {
-    font-size: 13px;
-    padding: 6px 12px;
+    max-width: 100%;
   }
 
   .product-info h2 {
@@ -177,5 +181,15 @@
 
   .product-description {
     font-size: 13px;
+  }
+
+  .variation-list button {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px 0;
   }
 }
