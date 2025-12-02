@@ -1,4 +1,4 @@
-/* Google Font for Professional Look */
+/* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 * {
@@ -10,37 +10,37 @@
 body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(135deg, #3b82f6, #1e3a8a);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
-    color: #333333d5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* prevents shrinking on mobile */
+    padding: 40px 20px; /* breathing space on small devices */
 }
 
+h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: black;
+}
+
+/* Container */
 .container {
+    width: 100%;
     display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
+/* Login Box */
 .form-box {
-    z-index: 1;
     background: #fff;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    width: 320px;
+    width: 100%;
+    max-width: 350px;   /* Makes it friendly for mobile & desktop */
 }
 
-h2 {
-    
-    text-align: center;
-    margin-bottom: 1.5rem;
-    z-index: 10;
-    color:black;
-}
-
+/* Input Groups */
 .input-group {
     margin-bottom: 1rem;
     color: black;
@@ -68,6 +68,7 @@ input:focus {
     box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
 }
 
+/* Button */
 .btn {
     width: 100%;
     padding: 0.75rem;
@@ -84,6 +85,7 @@ input:focus {
     background-color: #2563eb;
 }
 
+/* Bottom Text */
 .switch-text {
     text-align: center;
     margin-top: 1rem;
@@ -98,4 +100,33 @@ input:focus {
 
 .switch-text a:hover {
     text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        align-items: center;  
+        padding-top: 20px;
+    }
+
+    .form-box {
+        padding: 1.5rem;
+        max-width: 320px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-box {
+        padding: 1.2rem;
+        max-width: 300px;
+    }
+
+    input, .btn {
+        padding: 0.65rem;
+        font-size: 0.9rem;
+    }
 }
